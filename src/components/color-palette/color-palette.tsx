@@ -20,7 +20,6 @@ export class ColorPalette {
   // Get the value of the custom property
   private customPropertyValue(color: string): string {
     const hostStyle = getComputedStyle(this.hostElement);
-    console.log(hostStyle.getPropertyValue(color));
     return hostStyle.getPropertyValue(color).trim();
   }
 
