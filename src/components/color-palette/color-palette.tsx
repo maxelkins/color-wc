@@ -12,12 +12,10 @@ export class ColorPalette {
   @Prop() colors: string;
   colorsArray: string[];
 
+  // Split colors prop string into an array of colors
   componentWillLoad() {
     this.colorsArray = this.colors.split(',').map(color => color.trim());
   }
-
-  // Get the computed styles of the root HTML element
-  rootStyle = getComputedStyle(document.documentElement);
 
   // Get the value of the custom property
   private customPropertyValue(color: string): string {
