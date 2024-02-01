@@ -10,16 +10,17 @@
     <script nomodule src="/build/color-wc.js"></script>
   </head>
   <style>
-    :root {
-      --color1: hsla(0, 100%, 50%, 1); /* #ff0000 */
-      --color2: hsla(120, 100%, 50%, 1); /* #00ff00 */
-      --color3: hsla(240, 100%, 50%, 1); /* #0000ff */
-      --color4: hsla(60, 100%, 50%, 1); /* #ffff00 */
-      --color5: hsla(300, 100%, 50%, 1); /* #ff00ff */
-      --color6: hsla(180, 100%, 50%, 1); /* #00ffff */
-    }
+    @import url('https://static.raspberrypi.org/styles/design-system-core/branches/main/design-system-core.css');
   </style>
   <body>
-    <my-component color="--color2"></my-component>
+    <!-- <my-component color="--color2"></my-component> -->
+    <color-palette colors="--rpf-red-900,--rpf-red-800, --rpf-red-600, --rpf-red-400, --rpf-red-200, --rpf-red-100"></color-palette>
+    <color-palette colors="--rpf-orange-900,--rpf-orange-800, --rpf-orange-600, --rpf-orange-400, --rpf-orange-200, --rpf-orange-100"></color-palette>
+    <color-palette colors="--rpf-yellow-900,--rpf-yellow-800, --rpf-yellow-600, --rpf-yellow-400, --rpf-yellow-200, --rpf-yellow-100"></color-palette>
+    <color-palette colors="--rpf-blue-900,--rpf-blue-800, --rpf-blue-600, --rpf-blue-400, --rpf-blue-200, --rpf-blue-100"></color-palette>
+    <color-palette colors="--rpf-navy-900,--rpf-navy-800, --rpf-navy-600, --rpf-navy-400, --rpf-navy-200, --rpf-navy-100"></color-palette>
+    <color-palette colors="--rpf-raspberry-900,--rpf-raspberry-800, --rpf-raspberry-600, --rpf-raspberry-400, --rpf-raspberry-200, --rpf-raspberry-100"></color-palette>
+    <color-palette colors="--rpf-green-900,--rpf-green-800, --rpf-green-600, --rpf-green-400, --rpf-green-200, --rpf-green-100"></color-palette>
+    <color-palette colors="--rpf-purple-900,--rpf-purple-800, --rpf-purple-600, --rpf-purple-400, --rpf-purple-200, --rpf-purple-100"></color-palette>
   </body>
 </html>

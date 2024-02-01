@@ -6,34 +6,34 @@
  */
 import { HTMLStencilElement, JSXBase } from "@stencil/core/internal";
 export namespace Components {
-    interface MyComponent {
-        "color": string;
+    interface ColorPalette {
+        "colors": string;
     }
 }
 declare global {
-    interface HTMLMyComponentElement extends Components.MyComponent, HTMLStencilElement {
+    interface HTMLColorPaletteElement extends Components.ColorPalette, HTMLStencilElement {
     }
-    var HTMLMyComponentElement: {
-        prototype: HTMLMyComponentElement;
-        new (): HTMLMyComponentElement;
+    var HTMLColorPaletteElement: {
+        prototype: HTMLColorPaletteElement;
+        new (): HTMLColorPaletteElement;
     };
     interface HTMLElementTagNameMap {
-        "my-component": HTMLMyComponentElement;
+        "color-palette": HTMLColorPaletteElement;
     }
 }
 declare namespace LocalJSX {
-    interface MyComponent {
-        "color"?: string;
+    interface ColorPalette {
+        "colors"?: string;
     }
     interface IntrinsicElements {
-        "my-component": MyComponent;
+        "color-palette": ColorPalette;
     }
 }
 export { LocalJSX as JSX };
 declare module "@stencil/core" {
     export namespace JSX {
         interface IntrinsicElements {
-            "my-component": LocalJSX.MyComponent & JSXBase.HTMLAttributes<HTMLMyComponentElement>;
+            "color-palette": LocalJSX.ColorPalette & JSXBase.HTMLAttributes<HTMLColorPaletteElement>;
         }
     }
 }
