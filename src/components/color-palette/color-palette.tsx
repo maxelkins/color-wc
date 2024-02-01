@@ -16,7 +16,7 @@ export class ColorPalette {
     this.colorsArray = this.colors.split(',').map(color => color.trim());
   }
 
-  // Get the value of the custom property
+  // Get the value of the custom property used for the background color
   private customPropertyValue(color: string): string {
     const hostStyle = getComputedStyle(this.hostElement);
     return hostStyle.getPropertyValue(color).trim();
