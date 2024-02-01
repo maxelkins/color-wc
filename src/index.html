@@ -4,11 +4,22 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=5.0" />
     <title>Stencil Component Starter</title>
+    <link rel="stylesheet" href="./style.css" />
 
     <script type="module" src="/build/color-wc.esm.js"></script>
     <script nomodule src="/build/color-wc.js"></script>
   </head>
+  <style>
+    :root {
+      --color1: hsla(0, 100%, 50%, 1); /* #ff0000 */
+      --color2: hsla(120, 100%, 50%, 1); /* #00ff00 */
+      --color3: hsla(240, 100%, 50%, 1); /* #0000ff */
+      --color4: hsla(60, 100%, 50%, 1); /* #ffff00 */
+      --color5: hsla(300, 100%, 50%, 1); /* #ff00ff */
+      --color6: hsla(180, 100%, 50%, 1); /* #00ffff */
+    }
+  </style>
   <body>
-    <my-component first="Stencil" last="'Don't call me a framework' JS"></my-component>
+    <my-component color="--color2"></my-component>
   </body>
 </html>

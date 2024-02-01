@@ -1,3 +1,99 @@
 :host {
   display: block;
 }
+
+.colorPalette,
+.details,
+.a11y,
+.a11y-white,
+.a11y-black {
+  display: flex;
+  align-items: center;
+  font-family: monospace;
+  gap: 1rem;
+}
+
+.colorPalette {
+  flex-direction: row;
+  padding: 0.5rem;
+  font-size: 0.75rem;
+}
+
+.details {
+  flex-direction: row;
+  justify-content: space-between;
+  flex: 1;
+  /* color: var(--color1); */
+}
+
+.a11y {
+  flex-direction: row;
+  gap: 0.5rem;
+}
+
+.a11y-white,
+.a11y-black {
+  padding: 0.5rem;
+  line-height: 0.5rem;
+  inline-size: 6.75rem;
+  flex-direction: row;
+  gap: 0.5rem;
+  justify-content: start;
+  border-radius: 0.25rem;
+}
+
+.a11y-white {
+  background-color: white;
+  color: black;
+  outline: 1px solid black;
+}
+
+.a11y-black {
+  background-color: black;
+  color: white;
+  outline: 1px solid white;
+}
+
+.a11y-fail {
+  color: darkred;
+}
+
+.a11y-pass {
+  color: green;
+}
+
+.a11y-pass.a11y-black {
+  color: greenyellow;
+}
+
+.a11y-fail.a11y-black {
+  color: red;
+}
+
+.a11y-pass::before {
+  content: '';
+  display: inline-block;
+  height: 16px;
+  width: 16px;
+  background-image: url('pass.svg');
+  background-repeat: no-repeat;
+  background-size: contain;
+}
+
+.a11y-fail::before {
+  content: '';
+  display: inline-block;
+  height: 16px;
+  width: 16px;
+  background-image: url('fail.svg');
+  background-repeat: no-repeat;
+  background-size: contain;
+}
+
+.a11y-black.a11y-pass::before {
+  background-image: url('pass-white.svg');
+}
+
+.a11y-black.a11y-fail::before {
+  background-image: url('fail-white.svg');
+}
