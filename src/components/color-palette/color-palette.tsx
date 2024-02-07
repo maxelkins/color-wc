@@ -1,5 +1,6 @@
-import { Element, Component, Prop, h } from '@stencil/core';
-import { StringHSLToHex, getLuminance, getContrastRatio, wcagLevel } from '../../utils/utils';
+import { Element, Component, Prop, Host, h } from '@stencil/core';
+// import { StringHSLToHex, getLuminance, getContrastRatio, wcagLevel } from '../../utils/utils';
+// import { ColorPaletteRow } from '../../components/color-palette/color-palette-row';
 
 @Component({
   tag: 'color-palette',
@@ -17,35 +18,13 @@ export class ColorPalette {
   }
 
   render() {
-    const colorElements = this.colorsArray.map(color => {
-      const customPropValue = getComputedStyle(this.hostElement).getPropertyValue(color).trim();
-      const HSLToHex = StringHSLToHex(customPropValue);
-      const colorLuminance = getLuminance(HSLToHex);
-      const whiteLuminance = 1;
-      const blackLuminance = 0;
-      const contrastAgainstWhite = getContrastRatio(colorLuminance, whiteLuminance).toFixed(2);
-      const contrastAgainstBlack = getContrastRatio(colorLuminance, blackLuminance).toFixed(2);
-      const textColor = contrastAgainstBlack > contrastAgainstWhite ? 'black' : 'white';
-      const wcagBlack = wcagLevel(contrastAgainstBlack);
-      const wcagWhite = wcagLevel(contrastAgainstWhite);
-
-      return (
-        <div class="colorPaletteRow" style={{ backgroundColor: `var(${color})` }}>
-          <div class="details">
-            <span style={{ color: textColor }}>{customPropValue}</span>
-          </div>
-          <div class="a11y">
-            <span class={`a11y-black ${wcagBlack === 'Fail' ? 'a11y-fail' : 'a11y-pass'}`}>
-              {wcagBlack} {contrastAgainstBlack}
-            </span>
-            <span class={`a11y-white ${wcagWhite === 'Fail' ? 'a11y-fail' : 'a11y-pass'}`}>
-              {wcagWhite} {contrastAgainstWhite}
-            </span>
-          </div>
-        </div>
-      );
-    });
-
-    return colorElements;
+    return (
+      <Host>
+        <div class="color-palette-title">Hello</div>
+        {this.colorsArray.map(color => (
+          <color-palette-row color={color}></color-palette-row>
+        ))}
+      </Host>
+    );
   }
 }

@@ -9,6 +9,9 @@ export namespace Components {
     interface ColorPalette {
         "colors": string;
     }
+    interface ColorPaletteRow {
+        "color": string;
+    }
 }
 declare global {
     interface HTMLColorPaletteElement extends Components.ColorPalette, HTMLStencilElement {
@@ -17,16 +20,27 @@ declare global {
         prototype: HTMLColorPaletteElement;
         new (): HTMLColorPaletteElement;
     };
+    interface HTMLColorPaletteRowElement extends Components.ColorPaletteRow, HTMLStencilElement {
+    }
+    var HTMLColorPaletteRowElement: {
+        prototype: HTMLColorPaletteRowElement;
+        new (): HTMLColorPaletteRowElement;
+    };
     interface HTMLElementTagNameMap {
         "color-palette": HTMLColorPaletteElement;
+        "color-palette-row": HTMLColorPaletteRowElement;
     }
 }
 declare namespace LocalJSX {
     interface ColorPalette {
         "colors"?: string;
     }
+    interface ColorPaletteRow {
+        "color"?: string;
+    }
     interface IntrinsicElements {
         "color-palette": ColorPalette;
+        "color-palette-row": ColorPaletteRow;
     }
 }
 export { LocalJSX as JSX };
@@ -34,6 +48,7 @@ declare module "@stencil/core" {
     export namespace JSX {
         interface IntrinsicElements {
             "color-palette": LocalJSX.ColorPalette & JSXBase.HTMLAttributes<HTMLColorPaletteElement>;
+            "color-palette-row": LocalJSX.ColorPaletteRow & JSXBase.HTMLAttributes<HTMLColorPaletteRowElement>;
         }
     }
 }
