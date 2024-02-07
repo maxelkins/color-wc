@@ -1,6 +1,4 @@
 import { Element, Component, Prop, Host, h } from '@stencil/core';
-// import { StringHSLToHex, getLuminance, getContrastRatio, wcagLevel } from '../../utils/utils';
-// import { ColorPaletteRow } from '../../components/color-palette/color-palette-row';
 
 @Component({
   tag: 'color-palette',
