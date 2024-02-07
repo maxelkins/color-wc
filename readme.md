@@ -25,7 +25,7 @@ To run the unit tests for the components, run:
 npm test
 ```
 
-## Using this component
+## Using this component (To be updated)
 
 There are three strategies we recommend for using web components built with Stencil.
 
