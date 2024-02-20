@@ -24,7 +24,7 @@ export class ColorPaletteRow {
       const wcagWhite = wcagLevel(contrastAgainstWhite);
 
       return (
-        <div class="colorPaletteRow" style={{ backgroundColor: `var(${color})` }}>
+        <div class="color-palette-row" style={{ backgroundColor: `var(${color})` }}>
           <div class="details">
             <span style={{ color: textColor }}>{color}</span>
             <span style={{ color: textColor }}>{customPropValue}</span>

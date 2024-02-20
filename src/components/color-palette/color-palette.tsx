@@ -19,7 +19,7 @@ export class ColorPalette {
   render() {
     return (
       <Host>
-        {this.title ? <div class="color-palette-title">{this.title}</div> : ''}
+        {this.title ? <div class="title">{this.title}</div> : ''}
         {this.colorsArray.map(color => (
           <color-palette-row color={color}></color-palette-row>
         ))}
