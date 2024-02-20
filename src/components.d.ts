@@ -8,6 +8,7 @@ import { HTMLStencilElement, JSXBase } from "@stencil/core/internal";
 export namespace Components {
     interface ColorPalette {
         "colors": string;
+        "title": string;
     }
     interface ColorPaletteRow {
         "color": string;
@@ -34,6 +35,7 @@ declare global {
 declare namespace LocalJSX {
     interface ColorPalette {
         "colors"?: string;
+        "title"?: string;
     }
     interface ColorPaletteRow {
         "color"?: string;

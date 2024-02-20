@@ -2,7 +2,7 @@
   display: block;
 }
 
-.colorPaletteRow,
+.color-palette-row,
 .details,
 .a11y,
 .a11y-white,
@@ -13,7 +13,7 @@
   gap: 1rem;
 }
 
-.colorPaletteRow {
+.color-palette-row {
   flex-direction: row;
   padding: 0.5rem;
   font-size: 0.75rem;
