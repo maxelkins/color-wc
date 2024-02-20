@@ -9,6 +9,7 @@ export class ColorPalette {
   @Element() hostElement: HTMLElement;
   @Prop() colors: string;
   @Prop() title: string;
+  @Prop() controls: boolean;
   colorsArray: string[];
 
   // Split colors prop string into an array of colors
@@ -20,9 +21,12 @@ export class ColorPalette {
     return (
       <Host>
         {this.title ? <div class="title">{this.title}</div> : ''}
-        {this.colorsArray.map(color => (
-          <color-palette-row color={color}></color-palette-row>
-        ))}
+        {this.controls ? <div class="controls">Controls</div> : ''}
+        <div class="palette">
+          {this.colorsArray.map(color => (
+            <color-palette-row color={color}></color-palette-row>
+          ))}
+        </div>
       </Host>
     );
   }
