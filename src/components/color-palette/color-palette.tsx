@@ -8,6 +8,7 @@ import { Element, Component, Prop, Host, h } from '@stencil/core';
 export class ColorPalette {
   @Element() hostElement: HTMLElement;
   @Prop() colors: string;
+  @Prop() title: string;
   colorsArray: string[];
 
   // Split colors prop string into an array of colors
@@ -18,7 +19,7 @@ export class ColorPalette {
   render() {
     return (
       <Host>
-        <div class="color-palette-title">Hello</div>
+        <div class="color-palette-title">{this.title}</div>
         {this.colorsArray.map(color => (
           <color-palette-row color={color}></color-palette-row>
         ))}
