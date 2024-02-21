@@ -25,10 +25,14 @@ export class ColorPalette {
           {this.title ? <div class="title">{this.title}</div> : ''}
           {this.controls ? (
             <div class="controls">
-              <label htmlFor="contrast">
-                Contrast values
+              <div class="input-checkbox">
                 <input type="checkbox" name="contrast" id="contrast" />
-              </label>
+                <label htmlFor="contrast">Contrast values</label>
+              </div>
+              <div class="input-checkbox">
+                <input type="checkbox" name="fail" id="fail" />
+                <label htmlFor="fail">Hide fails</label>
+              </div>
             </div>
           ) : (
             ''

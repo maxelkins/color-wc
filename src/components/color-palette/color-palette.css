@@ -33,3 +33,20 @@ main:has(#contrast:checked) {
     inline-size: 9ch;
   }
 }
+
+main:has(#fail:checked) {
+  .a11y-fail {
+    display: none;
+  }
+}
+
+.controls {
+  padding: 1rem;
+  background-color: #f5f5f5;
+  border-radius: 0.5rem;
+}
+
+.input-checkbox {
+  display: flex;
+  gap: 0.5rem;
+}
