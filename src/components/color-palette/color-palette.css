@@ -22,6 +22,24 @@ main {
   gap: 1rem;
 }
 
+.controls {
+  padding: 1rem;
+  background-color: #f5f5f5;
+  border-radius: 0.5rem;
+  display: flex;
+  align-items: center;
+  gap: 2rem;
+}
+
+.controls > * {
+  display: block;
+}
+
+.input-checkbox {
+  display: flex;
+  gap: 0.5rem;
+}
+
 /* This main wrapper is needed for :has(), as it currently cannot be used on :host */
 main:has(#contrast:checked) {
   .a11y-contrast-value {
@@ -40,20 +58,14 @@ main:has(#fail:checked) {
   }
 }
 
-.controls {
-  padding: 1rem;
-  background-color: #f5f5f5;
-  border-radius: 0.5rem;
-  display: flex;
-  align-items: center;
-  gap: 2rem;
+main:has(#pass:checked) {
+  .a11y-pass {
+    display: none;
+  }
 }
 
-.controls > * {
-  display: block;
-}
-
-.input-checkbox {
-  display: flex;
-  gap: 0.5rem;
+main:has(#fail:checked):has(#pass:checked) {
+  .a11y {
+    display: none;
+  }
 }

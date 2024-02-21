@@ -35,6 +35,7 @@ export class ColorPalette {
               </div> */}
               <input-toggle toggleId="contrast" toggleLabel="Contrast values"></input-toggle>
               <input-toggle toggleId="fail" toggleLabel="Hide fails"></input-toggle>
+              <input-toggle toggleId="pass" toggleLabel="Hide passes"></input-toggle>
             </div>
           ) : (
             ''
