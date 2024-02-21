@@ -44,9 +44,9 @@ main:has(#fail:checked) {
   padding: 1rem;
   background-color: #f5f5f5;
   border-radius: 0.5rem;
-  display: column;
+  display: flex;
   align-items: center;
-  gap: 1rem;
+  gap: 2rem;
 }
 
 .controls > * {
