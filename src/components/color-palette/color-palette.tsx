@@ -20,6 +20,7 @@ export class ColorPalette {
   render() {
     return (
       <Host>
+        {/* This wrapper is needed for :has(), as it currently cannot be used on :host */}
         <div class="wrapper">
           {this.title ? <div class="title">{this.title}</div> : ''}
           {this.controls ? (
