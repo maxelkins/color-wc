@@ -27,6 +27,7 @@ main {
   background-color: #f5f5f5;
   border-radius: 0.5rem;
   display: flex;
+  flex-wrap: wrap;
   align-items: center;
   gap: 2rem;
 }
