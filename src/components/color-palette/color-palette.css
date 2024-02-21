@@ -41,30 +41,40 @@ main {
 }
 
 /* This main wrapper is needed for :has(), as it currently cannot be used on :host */
-main:has(#contrast:checked) {
+/* main:has(#contrast:checked) {
   .a11y-contrast-value {
-    display: block;
+    display: none;
   }
 
   .a11y-white,
   .a11y-black {
-    inline-size: 9ch;
+    inline-size: 4ch;
+  }
+} */
+
+main:has(#contrast:not(:checked)) {
+  .a11y-contrast-value {
+    display: none;
+  }
+
+  .a11y-white,
+  .a11y-black {
+    inline-size: 4ch;
   }
 }
 
-main:has(#fail:checked) {
+main:has(#fail:not(:checked)) {
   .a11y-fail {
     display: none;
   }
 }
 
-main:has(#pass:checked) {
+main:has(#pass:not(:checked)) {
   .a11y-pass {
     display: none;
   }
 }
-
-main:has(#fail:checked):has(#pass:checked) {
+main:has(#fail:not(:checked)):has(#pass:not(:checked)) {
   .a11y {
     display: none;
   }

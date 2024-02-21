@@ -15,6 +15,8 @@ export namespace Components {
         "color": string;
     }
     interface InputToggle {
+        "checked": boolean;
+        "on": boolean;
         "toggleId": string;
         "toggleLabel": string;
     }
@@ -54,6 +56,8 @@ declare namespace LocalJSX {
         "color"?: string;
     }
     interface InputToggle {
+        "checked"?: boolean;
+        "on"?: boolean;
         "toggleId"?: string;
         "toggleLabel"?: string;
     }

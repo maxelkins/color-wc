@@ -9,11 +9,13 @@ export class InputToggle {
   @Element() hostElement: HTMLElement;
   @Prop() toggleId: string;
   @Prop() toggleLabel: string;
+  @Prop() on: boolean;
+  @Prop() checked: boolean;
 
   render() {
     return (
       <label class="toggle" htmlFor={this.toggleId}>
-        <input class="toggle-checkbox" type="checkbox" name={this.toggleId} id={this.toggleId} />
+        <input checked={this.on || this.checked ? true : false} class="toggle-checkbox" type="checkbox" name={this.toggleId} id={this.toggleId} />
         <span class="toggle-display" hidden>
           <svg
             aria-hidden="true"

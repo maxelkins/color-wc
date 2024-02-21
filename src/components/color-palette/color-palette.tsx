@@ -33,9 +33,9 @@ export class ColorPalette {
                 <input type="checkbox" name="fail" id="fail" />
                 <label htmlFor="fail">Hide fails</label>
               </div> */}
-              <input-toggle toggleId="contrast" toggleLabel="Contrast values"></input-toggle>
-              <input-toggle toggleId="fail" toggleLabel="Hide fails"></input-toggle>
-              <input-toggle toggleId="pass" toggleLabel="Hide passes"></input-toggle>
+              <input-toggle on toggleId="contrast" toggleLabel="Contrast values"></input-toggle>
+              <input-toggle on toggleId="fail" toggleLabel="Fails"></input-toggle>
+              <input-toggle on toggleId="pass" toggleLabel="Passes"></input-toggle>
             </div>
           ) : (
             ''

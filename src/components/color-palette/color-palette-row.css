@@ -52,7 +52,7 @@
   border-radius: 0.25rem;
   font-weight: bold;
 
-  inline-size: 4ch;
+  inline-size: 9ch;
   /* inline-size: 13ch; */
   /* justify-content: start; */
 }
@@ -77,7 +77,7 @@
 } */
 
 .a11y-contrast-value {
-  display: none;
+  display: inline;
 }
 
 .a11y-white {
