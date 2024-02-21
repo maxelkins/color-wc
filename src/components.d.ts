@@ -14,6 +14,10 @@ export namespace Components {
     interface ColorPaletteRow {
         "color": string;
     }
+    interface InputToggle {
+        "id": string;
+        "label": string;
+    }
 }
 declare global {
     interface HTMLColorPaletteElement extends Components.ColorPalette, HTMLStencilElement {
@@ -28,9 +32,16 @@ declare global {
         prototype: HTMLColorPaletteRowElement;
         new (): HTMLColorPaletteRowElement;
     };
+    interface HTMLInputToggleElement extends Components.InputToggle, HTMLStencilElement {
+    }
+    var HTMLInputToggleElement: {
+        prototype: HTMLInputToggleElement;
+        new (): HTMLInputToggleElement;
+    };
     interface HTMLElementTagNameMap {
         "color-palette": HTMLColorPaletteElement;
         "color-palette-row": HTMLColorPaletteRowElement;
+        "input-toggle": HTMLInputToggleElement;
     }
 }
 declare namespace LocalJSX {
@@ -42,9 +53,14 @@ declare namespace LocalJSX {
     interface ColorPaletteRow {
         "color"?: string;
     }
+    interface InputToggle {
+        "id"?: string;
+        "label"?: string;
+    }
     interface IntrinsicElements {
         "color-palette": ColorPalette;
         "color-palette-row": ColorPaletteRow;
+        "input-toggle": InputToggle;
     }
 }
 export { LocalJSX as JSX };
@@ -53,6 +69,7 @@ declare module "@stencil/core" {
         interface IntrinsicElements {
             "color-palette": LocalJSX.ColorPalette & JSXBase.HTMLAttributes<HTMLColorPaletteElement>;
             "color-palette-row": LocalJSX.ColorPaletteRow & JSXBase.HTMLAttributes<HTMLColorPaletteRowElement>;
+            "input-toggle": LocalJSX.InputToggle & JSXBase.HTMLAttributes<HTMLInputToggleElement>;
         }
     }
 }
