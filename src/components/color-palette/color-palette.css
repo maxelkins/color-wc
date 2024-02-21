@@ -41,16 +41,6 @@ main {
 }
 
 /* This main wrapper is needed for :has(), as it currently cannot be used on :host */
-/* main:has(#contrast:checked) {
-  .a11y-contrast-value {
-    display: none;
-  }
-
-  .a11y-white,
-  .a11y-black {
-    inline-size: 4ch;
-  }
-} */
 
 main:has(#contrast:not(:checked)) {
   .a11y-contrast-value {
