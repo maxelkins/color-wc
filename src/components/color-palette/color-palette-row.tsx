@@ -4,7 +4,7 @@ import { StringHSLToHex, getLuminance, getContrastRatio, wcagLevel } from '../..
 @Component({
   tag: 'color-palette-row',
   styleUrl: 'color-palette-row.css',
-  shadow: true,
+  shadow: false,
 })
 export class ColorPaletteRow {
   @Element() hostElement: HTMLElement;
@@ -26,15 +26,17 @@ export class ColorPaletteRow {
       return (
         <div class="color-palette-row" style={{ backgroundColor: `var(${color})` }}>
           <div class="details">
-            <span style={{ color: textColor }}>{color}</span>
+            <span class="custom-property" style={{ color: textColor }}>
+              {color}
+            </span>
             <span style={{ color: textColor }}>{customPropValue}</span>
           </div>
           <div class="a11y">
-            <span class={`a11y-black ${wcagBlack === 'Fail' ? 'a11y-fail' : 'a11y-pass'}`}>
-              {wcagBlack} {contrastAgainstBlack}
+            <span title={contrastAgainstBlack} class={`a11y-black ${wcagBlack === 'Fail' ? 'a11y-fail' : 'a11y-pass'}`}>
+              {wcagBlack} <span class="a11y-contrast-value">{contrastAgainstBlack}</span>
             </span>
-            <span class={`a11y-white ${wcagWhite === 'Fail' ? 'a11y-fail' : 'a11y-pass'}`}>
-              {wcagWhite} {contrastAgainstWhite}
+            <span title={contrastAgainstWhite} class={`a11y-white ${wcagWhite === 'Fail' ? 'a11y-fail' : 'a11y-pass'}`}>
+              {wcagWhite} <span class="a11y-contrast-value">{contrastAgainstWhite}</span>
             </span>
           </div>
         </div>

@@ -13,3 +13,18 @@
   font-size: 2rem;
   font-family: sans-serif;
 }
+
+/* .controls:has(input[type='checkbox']:checked) {
+  background: blue;
+} */
+
+.wrapper:has(#contrast:checked) {
+  .a11y-contrast-value {
+    display: block;
+  }
+
+  .a11y-white,
+  .a11y-black {
+    inline-size: 9ch;
+  }
+}

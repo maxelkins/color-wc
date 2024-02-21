@@ -20,12 +20,23 @@ export class ColorPalette {
   render() {
     return (
       <Host>
-        {this.title ? <div class="title">{this.title}</div> : ''}
-        {this.controls ? <div class="controls">Controls</div> : ''}
-        <div class="palette">
-          {this.colorsArray.map(color => (
-            <color-palette-row color={color}></color-palette-row>
-          ))}
+        <div class="wrapper">
+          {this.title ? <div class="title">{this.title}</div> : ''}
+          {this.controls ? (
+            <div class="controls">
+              <label htmlFor="contrast">
+                Contrast values
+                <input type="checkbox" name="contrast" id="contrast" />
+              </label>
+            </div>
+          ) : (
+            ''
+          )}
+          <div class="palette">
+            {this.colorsArray.map(color => (
+              <color-palette-row color={color}></color-palette-row>
+            ))}
+          </div>
         </div>
       </Host>
     );
