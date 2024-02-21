@@ -1,10 +1,81 @@
 :host {
-  display: block;
-  margin-bottom: 5rem;
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+  font-family: monospace;
+  font-size: 1rem;
+}
+
+.palette {
+  display: flex;
+  flex-direction: column;
 }
 
 .title {
-  font-size: 2rem;
-  margin-block-end: 1rem;
-  font-family: sans-serif;
+  font-size: 1.5rem;
+  font-weight: bold;
+}
+
+main {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+
+.controls {
+  padding: 1rem;
+  background-color: #f5f5f5;
+  border-radius: 0.5rem;
+  display: flex;
+  align-items: center;
+  gap: 2rem;
+}
+
+.controls > * {
+  display: block;
+}
+
+.input-checkbox {
+  display: flex;
+  gap: 0.5rem;
+}
+
+/* This main wrapper is needed for :has(), as it currently cannot be used on :host */
+/* main:has(#contrast:checked) {
+  .a11y-contrast-value {
+    display: none;
+  }
+
+  .a11y-white,
+  .a11y-black {
+    inline-size: 4ch;
+  }
+} */
+
+main:has(#contrast:not(:checked)) {
+  .a11y-contrast-value {
+    display: none;
+  }
+
+  .a11y-white,
+  .a11y-black {
+    inline-size: 4ch;
+  }
+}
+
+main:has(#fail:not(:checked)) {
+  .a11y-fail {
+    display: none;
+  }
+}
+
+main:has(#pass:not(:checked)) {
+  .a11y-pass {
+    display: none;
+  }
+}
+main:has(#fail:not(:checked)):has(#pass:not(:checked)) {
+  .a11y {
+    display: none;
+  }
 }
