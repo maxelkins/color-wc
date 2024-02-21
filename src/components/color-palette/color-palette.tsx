@@ -20,8 +20,8 @@ export class ColorPalette {
   render() {
     return (
       <Host>
-        {/* This wrapper is needed for :has(), as it currently cannot be used on :host */}
-        <div class="wrapper">
+        {/* This main wrapper is needed for :has(), as it currently cannot be used on :host */}
+        <main>
           {this.title ? <div class="title">{this.title}</div> : ''}
           {this.controls ? (
             <div class="controls">
@@ -38,7 +38,7 @@ export class ColorPalette {
               <color-palette-row color={color}></color-palette-row>
             ))}
           </div>
-        </div>
+        </main>
       </Host>
     );
   }
