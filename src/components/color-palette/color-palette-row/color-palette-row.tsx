@@ -25,7 +25,7 @@ export class ColorPaletteRow {
         <span
           style={{ backgroundColor: background }}
           title={contrastValue.toString()}
-          class={`a11y-pass ${background === '#000000' ? 'a11y-black' : 'a11y-white'}`}
+          class={`a11y-tag a11y-pass ${background === '#000000' ? 'a11y-black' : 'a11y-white'}`}
         >
           AAA <span class="a11y-contrast-value">{contrastValue}</span>
         </span>
@@ -35,7 +35,7 @@ export class ColorPaletteRow {
         <span
           style={{ backgroundColor: background }}
           title={contrastValue.toString()}
-          class={`a11y-pass ${background === '#000000' ? 'a11y-black' : 'a11y-white'}`}
+          class={`a11y-tag a11y-pass ${background === '#000000' ? 'a11y-black' : 'a11y-white'}`}
         >
           AA <span class="a11y-contrast-value">{contrastValue}</span>
         </span>
@@ -45,7 +45,7 @@ export class ColorPaletteRow {
         <span
           style={{ backgroundColor: background }}
           title={contrastValue.toString()}
-          class={`a11y-fail ${background === '#000000' ? 'a11y-black' : 'a11y-white'}`}
+          class={`a11y-tag a11y-fail ${background === '#000000' ? 'a11y-black' : 'a11y-white'}`}
         >
           Fail <span class="a11y-contrast-value">{contrastValue}</span>
         </span>
