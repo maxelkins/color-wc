@@ -25,14 +25,6 @@ export class ColorPalette {
           {this.title ? <div class="title">{this.title}</div> : ''}
           {this.controls ? (
             <div class="controls">
-              {/* <div class="input-checkbox">
-                <input type="checkbox" name="contrast" id="contrast" />
-                <label htmlFor="contrast">Contrast values</label>
-              </div>
-              <div class="input-checkbox">
-                <input type="checkbox" name="fail" id="fail" />
-                <label htmlFor="fail">Hide fails</label>
-              </div> */}
               <input-toggle on toggleId="contrast" toggleLabel="Contrast values"></input-toggle>
               <input-toggle on toggleId="fail" toggleLabel="Fails"></input-toggle>
               <input-toggle on toggleId="pass" toggleLabel="Passes"></input-toggle>

@@ -6,6 +6,10 @@
  */
 import { HTMLStencilElement, JSXBase } from "@stencil/core/internal";
 export namespace Components {
+    interface A11yTag {
+        "background": string;
+        "foreground": string;
+    }
     interface ColorPalette {
         "colors": string;
         "controls": boolean;
@@ -22,6 +26,12 @@ export namespace Components {
     }
 }
 declare global {
+    interface HTMLA11yTagElement extends Components.A11yTag, HTMLStencilElement {
+    }
+    var HTMLA11yTagElement: {
+        prototype: HTMLA11yTagElement;
+        new (): HTMLA11yTagElement;
+    };
     interface HTMLColorPaletteElement extends Components.ColorPalette, HTMLStencilElement {
     }
     var HTMLColorPaletteElement: {
@@ -41,12 +51,17 @@ declare global {
         new (): HTMLInputToggleElement;
     };
     interface HTMLElementTagNameMap {
+        "a11y-tag": HTMLA11yTagElement;
         "color-palette": HTMLColorPaletteElement;
         "color-palette-row": HTMLColorPaletteRowElement;
         "input-toggle": HTMLInputToggleElement;
     }
 }
 declare namespace LocalJSX {
+    interface A11yTag {
+        "background"?: string;
+        "foreground"?: string;
+    }
     interface ColorPalette {
         "colors"?: string;
         "controls"?: boolean;
@@ -62,6 +77,7 @@ declare namespace LocalJSX {
         "toggleLabel"?: string;
     }
     interface IntrinsicElements {
+        "a11y-tag": A11yTag;
         "color-palette": ColorPalette;
         "color-palette-row": ColorPaletteRow;
         "input-toggle": InputToggle;
@@ -71,6 +87,7 @@ export { LocalJSX as JSX };
 declare module "@stencil/core" {
     export namespace JSX {
         interface IntrinsicElements {
+            "a11y-tag": LocalJSX.A11yTag & JSXBase.HTMLAttributes<HTMLA11yTagElement>;
             "color-palette": LocalJSX.ColorPalette & JSXBase.HTMLAttributes<HTMLColorPaletteElement>;
             "color-palette-row": LocalJSX.ColorPaletteRow & JSXBase.HTMLAttributes<HTMLColorPaletteRowElement>;
             "input-toggle": LocalJSX.InputToggle & JSXBase.HTMLAttributes<HTMLInputToggleElement>;
