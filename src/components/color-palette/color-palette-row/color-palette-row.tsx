@@ -4,7 +4,6 @@ import a11yPlugin from 'colord/plugins/a11y';
 import labPlugin from 'colord/plugins/lab';
 import hwbPlugin from 'colord/plugins/hwb';
 import lchPlugin from 'colord/plugins/lch';
-
 extend([a11yPlugin, labPlugin, hwbPlugin, lchPlugin]);
 
 @Component({
