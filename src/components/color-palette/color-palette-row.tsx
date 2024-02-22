@@ -1,8 +1,12 @@
 import { Element, Component, Prop, h } from '@stencil/core';
 import { getLuminance, getContrastRatio, wcagLevel } from '../../utils/utils';
-import { colord } from 'colord';
-// import a11yPlugin from 'colord/plugins/a11y';
-// extend([a11yPlugin]);
+import { colord, extend } from 'colord';
+import a11yPlugin from 'colord/plugins/a11y';
+import labPlugin from 'colord/plugins/lab';
+import hwbPlugin from 'colord/plugins/hwb';
+import lchPlugin from 'colord/plugins/lch';
+
+extend([a11yPlugin, labPlugin, hwbPlugin, lchPlugin]);
 
 @Component({
   tag: 'color-palette-row',
@@ -18,17 +22,23 @@ export class ColorPaletteRow {
   render() {
     const colorElements = color => {
       const customPropValue: string = getComputedStyle(this.hostElement).getPropertyValue(color).trim();
-      const propToHex: string = colord(customPropValue).toHex();
-      const colorLuminance: number = getLuminance(propToHex);
-      const whiteLuminance: number = 1;
-      const blackLuminance: number = 0;
-      const contrastAgainstWhite: number = parseFloat(getContrastRatio(colorLuminance, whiteLuminance).toFixed(2));
-      const contrastAgainstBlack: number = parseFloat(getContrastRatio(colorLuminance, blackLuminance).toFixed(2));
+      // const propToHex: string = colord(customPropValue).toHex();
+      // const colorLuminance: number = getLuminance(propToHex);
+      // const whiteLuminance: number = 1;
+      // const blackLuminance: number = 0;
+      // const contrastAgainstWhite: number = parseFloat(getContrastRatio(colorLuminance, whiteLuminance).toFixed(2));
+      // const contrastAgainstBlack: number = parseFloat(getContrastRatio(colorLuminance, blackLuminance).toFixed(2));
+      const contrastAgainstWhite: number = colord(customPropValue).contrast();
+      const contrastAgainstBlack: number = colord(customPropValue).contrast('#000000');
       const textColor: string = contrastAgainstBlack > contrastAgainstWhite ? 'black' : 'white';
       const wcagBlack: string = wcagLevel(contrastAgainstBlack);
       const wcagWhite: string = wcagLevel(contrastAgainstWhite);
       {
-        // console.log(colord(propToHex).luminance());
+        // console.log('---');
+        // console.log(contrastAgainstWhite);
+        // console.log(colord(propToHex).contrast());
+        // console log "COLORD IS MORE" if the contrast value is higher than the one calculated with getContrastRatio
+        // console.log(colord(propToHex).contrast() > contrastAgainstWhite ? 'COLORD IS MORE' : 'COLORD IS LESS');
       }
       return (
         <div class="color-palette-row" style={{ backgroundColor: `var(${color})` }}>

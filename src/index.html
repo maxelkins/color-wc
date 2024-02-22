@@ -15,10 +15,12 @@
       --hex: #fa5252;
       --hsl: hsl(207, 86%, 57%);
       --rgb: rgb(81, 207, 102);
-      /* Not working yet */
       --hwb: hwb(23 17% 0%);
-      --lch: hwb(304 2% 9%);
-      --lab: hwb(162 2% 9%);
+      --lch: lch(70% 39 306);
+      /* Not working yet */
+      --lab: lab(77 -77 38.39);
+      --oklch: oklch(75.36% 0.266 147.49);
+      --oklab: oklab(0.8, 0.241, −0.065);
     }
 
     body {
@@ -29,7 +31,7 @@
     }
   </style>
   <body>
-    <color-palette title="Supported color formats" colors="--hex,--hsl,--rgb"></color-palette>
+    <color-palette title="Supported color formats" colors="--hex,--hsl,--rgb,--hwb,--lch,--lab"></color-palette>
     <color-palette controls title="Red" colors="--red-0,--red-1,--red-2,--red-3,--red-4,--red-5,--red-6,--red-7,--red-8,--red-9,--red-10,--red-11,--red-12"></color-palette>
     <color-palette title="Blue" colors="--blue-0,--blue-1,--blue-2,--blue-3,--blue-4,--blue-5,--blue-6,--blue-7,--blue-8,--blue-9,--blue-10,--blue-11,--blue-12"></color-palette>
   </body>

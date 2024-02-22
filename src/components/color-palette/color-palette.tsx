@@ -1,4 +1,4 @@
-import { Element, Component, Prop, Host, h } from '@stencil/core';
+import { Element, Component, Prop, Host, h, Listen } from '@stencil/core';
 
 @Component({
   tag: 'color-palette',
@@ -16,6 +16,17 @@ export class ColorPalette {
   componentWillLoad() {
     this.colorsArray = this.colors.split(',').map(color => color.trim());
   }
+
+  // handleClick() {
+  //   const checkbox = document.getElementById('test') as HTMLInputElement;
+  //   if (checkbox.checked) {
+  //     console.log('test');
+  //   }
+  // }
+
+  private inputChanged = (event: Event) => {
+    console.log('input changed: ', (event.target as HTMLInputElement).value);
+  };
 
   render() {
     return (
