@@ -1,5 +1,4 @@
 import { Element, Component, Prop, h } from '@stencil/core';
-import { getLuminance, getContrastRatio, wcagLevel } from '../../utils/utils';
 import { colord, extend } from 'colord';
 import a11yPlugin from 'colord/plugins/a11y';
 import labPlugin from 'colord/plugins/lab';
@@ -16,29 +15,54 @@ extend([a11yPlugin, labPlugin, hwbPlugin, lchPlugin]);
 export class ColorPaletteRow {
   @Element() hostElement: HTMLElement;
   @Prop() color: string;
-  contrastAgainstWhite: number;
-  contrastAgainstBlack: number;
+
+  private a11yTags(foreground, background) {
+    const contrastValue: number = colord(foreground).contrast(background);
+    const wcagAAA: boolean = colord(foreground).isReadable(background, { level: 'AAA' });
+    const wcagAA: boolean = colord(foreground).isReadable(background, { level: 'AA' });
+    if (wcagAAA) {
+      return (
+        <span
+          style={{ backgroundColor: background }}
+          title={contrastValue.toString()}
+          class={`a11y-pass ${background === '#000000' ? 'a11y-black' : 'a11y-white'}`}
+        >
+          AAA <span class="a11y-contrast-value">{contrastValue}</span>
+        </span>
+      );
+    } else if (wcagAA) {
+      return (
+        <span
+          style={{ backgroundColor: background }}
+          title={contrastValue.toString()}
+          class={`a11y-pass ${background === '#000000' ? 'a11y-black' : 'a11y-white'}`}
+        >
+          AA <span class="a11y-contrast-value">{contrastValue}</span>
+        </span>
+      );
+    } else {
+      return (
+        <span
+          style={{ backgroundColor: background }}
+          title={contrastValue.toString()}
+          class={`a11y-fail ${background === '#000000' ? 'a11y-black' : 'a11y-white'}`}
+        >
+          Fail <span class="a11y-contrast-value">{contrastValue}</span>
+        </span>
+      );
+    }
+  }
 
   render() {
     const colorElements = color => {
-      const customPropValue: string = getComputedStyle(this.hostElement).getPropertyValue(color).trim();
-      // const propToHex: string = colord(customPropValue).toHex();
-      // const colorLuminance: number = getLuminance(propToHex);
-      // const whiteLuminance: number = 1;
-      // const blackLuminance: number = 0;
-      // const contrastAgainstWhite: number = parseFloat(getContrastRatio(colorLuminance, whiteLuminance).toFixed(2));
-      // const contrastAgainstBlack: number = parseFloat(getContrastRatio(colorLuminance, blackLuminance).toFixed(2));
-      const contrastAgainstWhite: number = colord(customPropValue).contrast();
+      const customPropValue: string = getComputedStyle(this.hostElement)
+        .getPropertyValue(color)
+        .trim();
+      const contrastAgainstWhite: number = colord(customPropValue).contrast('#ffffff');
       const contrastAgainstBlack: number = colord(customPropValue).contrast('#000000');
       const textColor: string = contrastAgainstBlack > contrastAgainstWhite ? 'black' : 'white';
-      const wcagBlack: string = wcagLevel(contrastAgainstBlack);
-      const wcagWhite: string = wcagLevel(contrastAgainstWhite);
       {
         // console.log('---');
-        // console.log(contrastAgainstWhite);
-        // console.log(colord(propToHex).contrast());
-        // console log "COLORD IS MORE" if the contrast value is higher than the one calculated with getContrastRatio
-        // console.log(colord(propToHex).contrast() > contrastAgainstWhite ? 'COLORD IS MORE' : 'COLORD IS LESS');
       }
       return (
         <div class="color-palette-row" style={{ backgroundColor: `var(${color})` }}>
@@ -49,12 +73,8 @@ export class ColorPaletteRow {
             <span style={{ color: textColor }}>{customPropValue}</span>
           </div>
           <div class="a11y">
-            <span title={contrastAgainstBlack.toString()} class={`a11y-black ${wcagBlack === 'Fail' ? 'a11y-fail' : 'a11y-pass'}`}>
-              {wcagBlack} <span class="a11y-contrast-value">{contrastAgainstBlack}</span>
-            </span>
-            <span title={contrastAgainstWhite.toString()} class={`a11y-white ${wcagWhite === 'Fail' ? 'a11y-fail' : 'a11y-pass'}`}>
-              {wcagWhite} <span class="a11y-contrast-value">{contrastAgainstWhite}</span>
-            </span>
+            {this.a11yTags(customPropValue, '#000000')}
+            {this.a11yTags(customPropValue, '#ffffff')}
           </div>
         </div>
       );
