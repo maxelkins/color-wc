@@ -32,3 +32,15 @@
 .custom-property {
   font-weight: bold;
 }
+
+.a11y {
+  display: flex;
+  align-items: center;
+  font-family: monospace;
+  flex-direction: row;
+  /* gap: 0.5rem; */
+}
+
+.a11y > * + * {
+  margin-inline-start: 0.5rem;
+}
