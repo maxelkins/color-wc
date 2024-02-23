@@ -58,11 +58,17 @@ main:has(#fail:not(:checked)) {
   .a11y-fail {
     display: none;
   }
+  .a11y > * + * {
+    margin-inline-start: 0rem;
+  }
 }
 
 main:has(#pass:not(:checked)) {
   .a11y-pass {
     display: none;
+  }
+  .a11y > * + * {
+    margin-inline-start: 0rem;
   }
 }
 main:has(#fail:not(:checked)):has(#pass:not(:checked)) {
