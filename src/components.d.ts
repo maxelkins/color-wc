@@ -13,7 +13,7 @@ export namespace Components {
     interface ColorPalette {
         "colors": string;
         "controls": boolean;
-        "title": string;
+        "heading": string;
     }
     interface ColorPaletteRow {
         "color": string;
@@ -65,7 +65,7 @@ declare namespace LocalJSX {
     interface ColorPalette {
         "colors"?: string;
         "controls"?: boolean;
-        "title"?: string;
+        "heading"?: string;
     }
     interface ColorPaletteRow {
         "color"?: string;

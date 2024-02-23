@@ -8,7 +8,7 @@ import { Element, Component, Prop, Host, h } from '@stencil/core';
 export class ColorPalette {
   @Element() hostElement: HTMLElement;
   @Prop() colors: string;
-  @Prop() title: string;
+  @Prop() heading: string;
   @Prop() controls: boolean;
   colorsArray: string[];
 
@@ -22,7 +22,7 @@ export class ColorPalette {
       <Host>
         {/* This main wrapper is needed for :has(), as it currently cannot be used on :host */}
         <main>
-          {this.title ? <div class="title">{this.title}</div> : ''}
+          {this.heading ? <div class="heading">{this.heading}</div> : ''}
           {this.controls ? (
             <div class="controls">
               <input-toggle on toggleId="contrast" toggleLabel="Contrast values"></input-toggle>
