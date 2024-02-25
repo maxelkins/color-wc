@@ -22,6 +22,16 @@ main {
   gap: 1rem;
 }
 
+summary {
+  cursor: pointer;
+  user-select: none;
+}
+
+summary:focus-visible {
+  outline: 0.125rem dotted black;
+  outline-offset: 0.25rem;
+}
+
 .controls {
   display: flex;
   flex-direction: column;
