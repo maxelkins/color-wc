@@ -1,11 +1,15 @@
 /* Credit: https://kittygiraudel.com/2021/04/05/an-accessible-toggle/ */
 
 .toggle {
-  display: inline-flex; /* 1 */
-  align-items: center; /* 1 */
-  flex-wrap: wrap; /* 2 */
-  position: relative; /* 3 */
-  gap: 1ch; /* 4 */
+  display: inline-flex;
+  align-items: center;
+  flex-wrap: wrap;
+  position: relative;
+  gap: 1rem;
+  min-height: 44px;
+
+  --toggle-color-primary: #222222;
+  --toggle-color-secondary: #ffffff;
 }
 
 /**
@@ -24,22 +28,22 @@
  *    used as a background color.
  */
 .toggle-display {
-  --offset: 0.25rem;
-  --diameter: 1.8rem;
+  --offset: 0.5rem;
+  --diameter: 1rem;
 
-  display: inline-flex; /* 1 */
-  align-items: center; /* 1 */
-  justify-content: space-around; /* 1 */
+  display: inline-flex;
+  align-items: center;
+  justify-content: space-around;
 
-  width: calc(var(--diameter) * 2 + var(--offset) * 2); /* 2 */
-  height: calc(var(--diameter) + var(--offset) * 2); /* 2 */
-  box-sizing: content-box; /* 2 */
+  width: calc(var(--diameter) * 2 + var(--offset) * 2);
+  height: calc(var(--diameter) + var(--offset));
+  box-sizing: content-box;
 
-  border: 0.1em solid rgb(0 0 0 / 0.2); /* 3 */
+  border: 0.125rem solid var(--toggle-color-primary);
 
-  position: relative; /* 4 */
-  border-radius: 100vw; /* 5 */
-  background-color: #fbe4e2; /* 6 */
+  position: relative;
+  border-radius: 100vw;
+  background-color: var(--toggle-color-secondary);
 
   transition: 250ms;
   cursor: pointer;
@@ -59,20 +63,20 @@
 .toggle-display::before {
   content: '';
 
-  inline-size: var(--diameter); /* 1 */
-  block-size: var(--diameter); /* 1 */
-  border-radius: 50%; /* 1 */
+  inline-size: var(--diameter);
+  block-size: var(--diameter);
+  border-radius: 50%;
 
-  box-sizing: border-box; /* 2 */
-  border: 0.1 solid rgb(0 0 0 / 0.2); /* 2 */
+  box-sizing: border-box;
+  border: 0.1 solid rgba(0, 0, 0, 0);
 
-  position: absolute; /* 3 */
-  z-index: 2; /* 3 */
-  inset-block-start: 50%; /* 3 */
-  inset-inline-start: var(--offset); /* 3 */
-  transform: translate(0, -50%); /* 3 */
+  position: absolute;
+  z-index: 2;
+  inset-block-start: 50%;
+  inset-inline-start: var(--offset);
+  transform: translate(-25%, -50%);
 
-  background-color: #fff; /* 4 */
+  background-color: var(--toggle-color-primary);
   transition: inherit;
 }
 
@@ -94,7 +98,8 @@
  *    customised to have a custom focus outline.
  */
 .toggle-checkbox:focus + .toggle-display {
-  outline: 1px dotted #212121; /* 1 */
+  outline: 0.125rem dotted var(--toggle-color-primary);
+  outline-offset: 0.25rem;
 }
 
 /**
@@ -104,15 +109,14 @@
  *    the focus is not visible when clicking it.
  */
 .toggle-checkbox:focus:not(:focus-visible) + .toggle-display {
-  outline: 0; /* 1 */
+  outline: 0;
 }
 
 /**
- * 1. When the input is checked, change the display background color to a
- *    pale green instead.
+ * 1. When the input is checked, change the display background.
  */
 .toggle-checkbox:checked + .toggle-display {
-  background-color: #e3f5eb; /* 1 */
+  background-color: var(--toggle-color-primary);
 }
 
 /**
@@ -120,7 +124,8 @@
  *    the cross icon instead of the checkmark one.
  */
 .toggle-checkbox:checked + .toggle-display::before {
-  transform: translate(100%, -50%); /* 1 */
+  transform: translate(125%, -50%);
+  background-color: var(--toggle-color-secondary);
 }
 
 /**
@@ -128,15 +133,15 @@
  *    with less sharp colors, softer opacity and a relevant cursor.
  */
 .toggle-checkbox:disabled + .toggle-display {
-  opacity: 0.6; /* 1 */
-  filter: grayscale(40%); /* 1 */
-  cursor: not-allowed; /* 1 */
+  opacity: 0.6;
+  filter: grayscale(40%);
+  cursor: not-allowed;
 }
 
 .toggle-icon {
   display: inline-block;
-  inline-size: 1em;
-  block-size: 1em;
+  inline-size: 0.75rem;
+  block-size: 0.75rem;
   color: inherit;
   fill: currentcolor;
   vertical-align: middle;
@@ -147,25 +152,24 @@
  *    size. This might not be needed depending on the icons.
  */
 .toggle-icon--cross {
-  color: #e74c3c;
-  font-size: 85%; /* 1 */
+  color: var(--toggle-color-primary);
 }
 
 .toggle-icon--checkmark {
-  color: #1fb978;
+  color: var(--toggle-color-secondary);
 }
 
 /**
  * 1. Flip the original position of the unchecked toggle in RTL.
  */
 [dir='rtl'] .Toggle__display::before {
-  left: auto; /* 1 */
-  right: var(--offset); /* 1 */
+  left: auto;
+  right: var(--offset);
 }
 
 /**
  * 1. Move the handle in the correct direction in RTL.
  */
 [dir='rtl'] .Toggle__input:checked + .Toggle__display::before {
-  transform: translate(-100%, -50%); /* 1 */
+  transform: translate(-100%, -50%);
 }

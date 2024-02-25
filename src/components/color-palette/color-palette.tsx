@@ -24,11 +24,14 @@ export class ColorPalette {
         <main>
           {this.heading ? <div class="heading">{this.heading}</div> : ''}
           {this.controls ? (
-            <div class="controls">
-              <input-toggle on toggleId="contrast" toggleLabel="Contrast values"></input-toggle>
-              <input-toggle on toggleId="fail" toggleLabel="Fails"></input-toggle>
-              <input-toggle on toggleId="pass" toggleLabel="Passes"></input-toggle>
-            </div>
+            <details>
+              <div class="controls">
+                <input-toggle on toggleId="contrast" toggleLabel="Contrast values"></input-toggle>
+                <input-toggle on toggleId="fail" toggleLabel="Fails"></input-toggle>
+                <input-toggle on toggleId="pass" toggleLabel="Passes"></input-toggle>
+              </div>
+              <summary>Controls</summary>
+            </details>
           ) : (
             ''
           )}
