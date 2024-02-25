@@ -31,10 +31,12 @@ export class ColorPaletteRow {
       return (
         <div class="color-palette-row" style={{ backgroundColor: `var(${color})` }}>
           <div class="details">
-            <span class="custom-property" style={{ color: textColor }}>
+            <span class="custom-property" style={{ color: textColor }} title="Cutom property">
               {color}
             </span>
-            <span style={{ color: textColor }}>{customPropValue}</span>
+            <span title="Color value" style={{ color: textColor }}>
+              {customPropValue}
+            </span>
           </div>
           <div class="a11y">
             <a11y-tag foreground={customPropValue} background="#000000"></a11y-tag>

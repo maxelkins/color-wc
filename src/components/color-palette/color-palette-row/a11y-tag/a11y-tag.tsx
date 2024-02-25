@@ -24,7 +24,11 @@ export class ColorPaletteRow {
       return (
         <span
           style={{ backgroundColor: this.background }}
-          title={contrastValue.toString()}
+          title={
+            this.background === '#000000'
+              ? 'Black text contrast: ' + contrastValue.toString()
+              : 'White text contrast: ' + contrastValue.toString()
+          }
           class={`a11y-tag a11y-pass ${
             this.background === '#000000' ? 'a11y-black' : 'a11y-white'
           }`}
@@ -36,7 +40,11 @@ export class ColorPaletteRow {
       return (
         <span
           style={{ backgroundColor: this.background }}
-          title={contrastValue.toString()}
+          title={
+            this.background === '#000000'
+              ? 'Black text contrast: ' + contrastValue.toString()
+              : 'White text contrast: ' + contrastValue.toString()
+          }
           class={`a11y-tag a11y-pass ${
             this.background === '#000000' ? 'a11y-black' : 'a11y-white'
           }`}
@@ -48,7 +56,11 @@ export class ColorPaletteRow {
       return (
         <span
           style={{ backgroundColor: this.background }}
-          title={contrastValue.toString()}
+          title={
+            this.background === '#000000'
+              ? 'Black text contrast: ' + contrastValue.toString()
+              : 'White text contrast: ' + contrastValue.toString()
+          }
           class={`a11y-tag a11y-fail ${
             this.background === '#000000' ? 'a11y-black' : 'a11y-white'
           }`}
