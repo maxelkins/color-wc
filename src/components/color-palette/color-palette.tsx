@@ -35,11 +35,11 @@ export class ColorPalette {
           ) : (
             ''
           )}
-          <div class="palette">
+          <ol class="palette">
             {this.colorsArray.map(color => (
               <color-palette-row color={color}></color-palette-row>
             ))}
-          </div>
+          </ol>
         </main>
       </Host>
     );
