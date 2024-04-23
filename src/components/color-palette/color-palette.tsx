@@ -1,4 +1,4 @@
-import { Element, Component, Prop, Host, h } from '@stencil/core';
+import { Element, Component, Prop, Host, h, Event, EventEmitter, Listen } from '@stencil/core';
 
 @Component({
   tag: 'color-palette',
@@ -10,9 +10,9 @@ export class ColorPalette {
   @Prop() colors: string;
   @Prop() heading: string;
   @Prop() controls: boolean;
-  colorsArray: string[];
 
   // Split colors prop string into an array of colors
+  colorsArray: string[];
   componentWillLoad() {
     this.colorsArray = this.colors.split(',').map(color => color.trim());
   }
@@ -36,6 +36,11 @@ export class ColorPalette {
             ''
           )}
           <ol class="palette">
+            <ul>
+              <span>Token</span>
+              <span>Value</span>
+              <span>Visual</span>
+            </ul>
             {this.colorsArray.map(color => (
               <color-palette-row color={color}></color-palette-row>
             ))}
