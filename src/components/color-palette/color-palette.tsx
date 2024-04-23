@@ -17,6 +17,10 @@ export class ColorPalette {
     this.colorsArray = this.colors.split(',').map(color => color.trim());
   }
 
+  hello(e) {
+    console.log('button');
+  }
+
   render() {
     return (
       <Host>
@@ -26,7 +30,12 @@ export class ColorPalette {
           {this.controls ? (
             <details>
               <div class="controls">
-                <input-toggle on toggleId="contrast" toggleLabel="Contrast values"></input-toggle>
+                <input-toggle
+                  onChange={e => this.hello(e)}
+                  on
+                  toggleId="contrast"
+                  toggleLabel="Contrast values"
+                ></input-toggle>
                 <input-toggle on toggleId="fail" toggleLabel="Fails"></input-toggle>
                 <input-toggle on toggleId="pass" toggleLabel="Passes"></input-toggle>
               </div>
