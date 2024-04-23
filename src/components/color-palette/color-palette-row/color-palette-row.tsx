@@ -24,25 +24,22 @@ export class ColorPaletteRow {
       // Text colour styling currently hardcoded to black or white
       const contrastAgainstWhite: number = colord(customPropValue).contrast('#ffffff');
       const contrastAgainstBlack: number = colord(customPropValue).contrast('#000000');
-      const textColor: string = contrastAgainstBlack > contrastAgainstWhite ? 'black' : 'white';
+      // const textColor: string = contrastAgainstBlack > contrastAgainstWhite ? 'black' : 'white';
       {
         // console.log('---');
       }
       return (
         <Host role="listitem">
-          <div class="color-palette-row" style={{ backgroundColor: `var(${color})` }}>
-            <div class="details">
-              <span class="custom-property" style={{ color: textColor }} title="Cutom property">
-                {color}
-              </span>
-              <span title="Color value" style={{ color: textColor }}>
-                {customPropValue}
-              </span>
-            </div>
-            <div class="a11y">
-              <a11y-tag foreground={customPropValue} background="#000000"></a11y-tag>
-              <a11y-tag foreground={customPropValue} background="#ffffff"></a11y-tag>
-            </div>
+          <div class="color-palette-row">
+            <span class="details custom-property" title="Cutom property">
+              {color}
+            </span>
+            <span class="details" title="Color value">
+              {customPropValue}
+            </span>
+            <div class="visual" style={{ backgroundColor: `var(${color})` }}></div>
+            <a11y-tag foreground={customPropValue} background="#000000"></a11y-tag>
+            <a11y-tag foreground={customPropValue} background="#ffffff"></a11y-tag>
           </div>
         </Host>
       );
