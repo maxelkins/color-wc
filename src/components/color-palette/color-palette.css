@@ -6,12 +6,38 @@
   font-size: 1rem;
 }
 
-.palette {
+/* .palette {
   display: flex;
   flex-direction: column;
   list-style: none;
   margin: 0;
   padding: 0;
+} */
+
+.palette {
+  background-color: black;
+  border-radius: 0.5rem;
+  display: grid;
+  grid-template-columns: auto auto auto auto 1fr;
+  gap: 1rem;
+  list-style: none;
+  margin: 0rem;
+  padding: 0.5rem 0;
+}
+
+/* rows */
+.palette > * {
+  display: grid;
+  grid-column-start: span 5;
+  grid-template-columns: subgrid;
+  gap: 2rem;
+  padding: 0 0.5rem;
+  align-items: center;
+}
+
+/* row items */
+.palette > * > * {
+  justify-self: left;
 }
 
 .heading {
