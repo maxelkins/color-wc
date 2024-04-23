@@ -18,7 +18,12 @@ export class ColorPalette {
   }
 
   hello(e) {
-    console.log('button');
+    // console.log(e.target);
+    if (e.target.checked) {
+      console.log('Checked!');
+    } else {
+      console.log('Unchecked!');
+    }
   }
 
   render() {
@@ -30,12 +35,8 @@ export class ColorPalette {
           {this.controls ? (
             <details>
               <div class="controls">
-                <input-toggle
-                  onChange={e => this.hello(e)}
-                  on
-                  toggleId="contrast"
-                  toggleLabel="Contrast values"
-                ></input-toggle>
+                <input onChange={e => this.hello(e)} type="checkbox" />
+                <input-toggle on toggleId="contrast" toggleLabel="Contrast values"></input-toggle>
                 <input-toggle on toggleId="fail" toggleLabel="Fails"></input-toggle>
                 <input-toggle on toggleId="pass" toggleLabel="Passes"></input-toggle>
               </div>
