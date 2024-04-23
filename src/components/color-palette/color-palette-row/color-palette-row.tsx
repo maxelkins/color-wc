@@ -30,15 +30,16 @@ export class ColorPaletteRow {
       }
       return (
         <Host class="color-palette-row" role="listitem">
-          <span class="details custom-property" title="Cutom property">
+          <span class="details custom-property" title="Custom property">
             {color}
           </span>
           <span class="details" title="Color value">
             {customPropValue}
           </span>
-          <a11y-tag foreground={customPropValue} background="#000000"></a11y-tag>
-          <a11y-tag foreground={customPropValue} background="#ffffff"></a11y-tag>
-          <div class="visual" style={{ backgroundColor: `var(${color})` }}></div>
+          <div class="visual" style={{ backgroundColor: `var(${color})` }}>
+            <a11y-tag foreground={customPropValue} background="#000000"></a11y-tag>
+            <a11y-tag foreground={customPropValue} background="#ffffff"></a11y-tag>
+          </div>
         </Host>
       );
     };

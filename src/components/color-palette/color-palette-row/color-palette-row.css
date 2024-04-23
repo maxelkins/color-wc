@@ -14,11 +14,6 @@
   background-color: black;
 }
 
-.color-palette-row > * {
-  /* justify-self: left;
-  background-color: aquamarine; */
-}
-
 .details {
   color: white;
   /* min-width: max-content; */
@@ -26,7 +21,7 @@
 
 .custom-property {
   font-weight: bold;
-  background-color: hsla(0, 0%, 100%, 0.25);
+  background-color: hsla(0, 0%, 100%, 0.125);
   border-radius: 0.25rem;
   padding: 0.25rem 0.5rem;
 }
@@ -35,13 +30,23 @@
   width: 100%;
   /* width: 100px; */
   /* min-width: 100px; */
-  height: 1rem;
+  height: 100%;
+  /* border-radius: 4px; */
+
+  box-sizing: border-box;
+
+  padding: 0 0.5rem;
+  display: flex;
+  justify-content: end;
+  align-items: center;
+  gap: 0.5rem;
 }
 
 .a11y {
   /* display: flex;
   align-items: center; */
   font-family: monospace;
+  font-size: 0.75rem;
   flex-direction: row;
   /* gap: 0.5rem; */
 }
