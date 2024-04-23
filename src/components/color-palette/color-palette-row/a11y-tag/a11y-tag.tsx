@@ -65,7 +65,7 @@ export class ColorPaletteRow {
             this.background === '#000000' ? 'a11y-black' : 'a11y-white'
           }`}
         >
-          Fail <span class="a11y-contrast-value">{contrastValue}</span>
+          F <span class="a11y-contrast-value">{contrastValue}</span>
         </span>
       );
     }

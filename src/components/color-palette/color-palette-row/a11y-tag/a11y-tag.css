@@ -3,14 +3,17 @@
   font-family: monospace;
   font-weight: bold;
   line-height: 0.5rem;
-  inline-size: 9ch;
+  inline-size: 8ch;
   display: flex;
   flex-direction: row;
   align-items: center;
   justify-content: center;
   gap: 0.5rem;
-  padding: 0.5rem;
+  padding: 0.4rem 0.2rem;
   border-radius: 0.25rem;
+
+  font-size: 0.75rem;
+  letter-spacing: -1px;
 }
 
 /* Labels ****************/
@@ -39,16 +42,16 @@
 .a11y-white {
   background-color: white;
   color: black;
-  outline: 1px solid black;
+  /* outline: 1px solid black; */
 }
 
 .a11y-black {
   background-color: black;
   color: white;
-  outline: 1px solid white;
 }
 
 .a11y-fail {
+  outline: 1px solid darkred;
   color: darkred;
 }
 
@@ -61,7 +64,8 @@
 }
 
 .a11y-fail.a11y-black {
-  color: red;
+  outline: 1px solid rgb(255, 172, 172);
+  color: rgb(255, 172, 172);
 }
 
 /* .a11y-pass::before {
