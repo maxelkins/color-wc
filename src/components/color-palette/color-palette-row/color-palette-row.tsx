@@ -34,6 +34,11 @@ export class ColorPaletteRow {
       const contrastAgainstWhite: number = colord(customPropValue).contrast('#ffffff');
       const contrastAgainstBlack: number = colord(customPropValue).contrast('#000000');
       const textColor: string = contrastAgainstBlack > contrastAgainstWhite ? 'black' : 'white';
+
+      const customContrastAgainstWhite: number = colord(customBackground).contrast('#ffffff');
+      const customContrastAgainstBlack: number = colord(customBackground).contrast('#000000');
+      const customTextColor: string =
+        customContrastAgainstBlack > customContrastAgainstWhite ? 'black' : 'white';
       // {
       //   console.log(this.customBackground);
       // }
@@ -51,7 +56,11 @@ export class ColorPaletteRow {
             </div>
             {this.customBackground ? (
               <div class="a11y">
-                <a11y-tag foreground={customPropValue} background={customBackground}></a11y-tag>
+                <a11y-tag
+                  tag={customTextColor}
+                  foreground={customPropValue}
+                  background={customBackground}
+                ></a11y-tag>
               </div>
             ) : (
               <div class="a11y">

@@ -9,6 +9,7 @@ export namespace Components {
     interface A11yTag {
         "background": string;
         "foreground": string;
+        "tag": string;
     }
     interface ColorPalette {
         "colors": string;
@@ -63,6 +64,7 @@ declare namespace LocalJSX {
     interface A11yTag {
         "background"?: string;
         "foreground"?: string;
+        "tag"?: string;
     }
     interface ColorPalette {
         "colors"?: string;

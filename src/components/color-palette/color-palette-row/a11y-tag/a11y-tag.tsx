@@ -15,6 +15,7 @@ export class ColorPaletteRow {
   @Element() hostElement: HTMLElement;
   @Prop() foreground: string;
   @Prop() background: string;
+  @Prop() tag: string;
 
   render() {
     const contrastValue: number = colord(this.foreground).contrast(this.background);
@@ -23,7 +24,7 @@ export class ColorPaletteRow {
     if (wcagAAA) {
       return (
         <span
-          style={{ backgroundColor: this.background }}
+          style={{ backgroundColor: this.background, color: this.tag }}
           title={
             this.background === '#000000'
               ? 'Black text contrast: ' + contrastValue.toString()
@@ -39,7 +40,7 @@ export class ColorPaletteRow {
     } else if (wcagAA) {
       return (
         <span
-          style={{ backgroundColor: this.background }}
+          style={{ backgroundColor: this.background, color: this.tag }}
           title={
             this.background === '#000000'
               ? 'Black text contrast: ' + contrastValue.toString()
@@ -55,7 +56,7 @@ export class ColorPaletteRow {
     } else {
       return (
         <span
-          style={{ backgroundColor: this.background }}
+          style={{ backgroundColor: this.background, color: this.tag }}
           title={
             this.background === '#000000'
               ? 'Black text contrast: ' + contrastValue.toString()
