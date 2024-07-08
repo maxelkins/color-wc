@@ -9,14 +9,17 @@ export namespace Components {
     interface A11yTag {
         "background": string;
         "foreground": string;
+        "tag": string;
     }
     interface ColorPalette {
         "colors": string;
         "controls": boolean;
+        "custom": string;
         "heading": string;
     }
     interface ColorPaletteRow {
         "color": string;
+        "customBackground": string;
     }
     interface InputToggle {
         "checked": boolean;
@@ -61,14 +64,17 @@ declare namespace LocalJSX {
     interface A11yTag {
         "background"?: string;
         "foreground"?: string;
+        "tag"?: string;
     }
     interface ColorPalette {
         "colors"?: string;
         "controls"?: boolean;
+        "custom"?: string;
         "heading"?: string;
     }
     interface ColorPaletteRow {
         "color"?: string;
+        "customBackground"?: string;
     }
     interface InputToggle {
         "checked"?: boolean;
