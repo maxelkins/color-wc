@@ -14,20 +14,29 @@ extend([a11yPlugin, labPlugin, hwbPlugin, lchPlugin]);
 export class ColorPaletteRow {
   @Element() hostElement: HTMLElement;
   @Prop() color: string;
+  @Prop() customBackground: string;
 
   render() {
+    console.log('======== Row =======');
+    console.log(this.color);
+    console.log(this.customBackground);
+    console.log('=====================');
     const colorElements = color => {
       const customPropValue: string = getComputedStyle(this.hostElement)
         .getPropertyValue(color)
+        .trim();
+
+      const customBackground: string = getComputedStyle(this.hostElement)
+        .getPropertyValue(this.customBackground)
         .trim();
 
       // Text colour styling currently hardcoded to black or white
       const contrastAgainstWhite: number = colord(customPropValue).contrast('#ffffff');
       const contrastAgainstBlack: number = colord(customPropValue).contrast('#000000');
       const textColor: string = contrastAgainstBlack > contrastAgainstWhite ? 'black' : 'white';
-      {
-        // console.log('---');
-      }
+      // {
+      //   console.log(this.customBackground);
+      // }
       return (
         <Host role="listitem">
           <div class="color-palette-row" style={{ backgroundColor: `var(${color})` }}>
@@ -36,13 +45,20 @@ export class ColorPaletteRow {
                 {color}
               </span>
               <span title="Color value" style={{ color: textColor }}>
-                {customPropValue}
+                <strong>Background:</strong> {customPropValue} // <strong>Text: </strong>
+                {customBackground}
               </span>
             </div>
-            <div class="a11y">
-              <a11y-tag foreground={customPropValue} background="#000000"></a11y-tag>
-              <a11y-tag foreground={customPropValue} background="#ffffff"></a11y-tag>
-            </div>
+            {this.customBackground ? (
+              <div class="a11y">
+                <a11y-tag foreground={customPropValue} background={customBackground}></a11y-tag>
+              </div>
+            ) : (
+              <div class="a11y">
+                <a11y-tag foreground={customPropValue} background="#000000"></a11y-tag>
+                <a11y-tag foreground={customPropValue} background="#ffffff"></a11y-tag>
+              </div>
+            )}
           </div>
         </Host>
       );

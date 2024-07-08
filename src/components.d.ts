@@ -13,10 +13,12 @@ export namespace Components {
     interface ColorPalette {
         "colors": string;
         "controls": boolean;
+        "custom": string;
         "heading": string;
     }
     interface ColorPaletteRow {
         "color": string;
+        "customBackground": string;
     }
     interface InputToggle {
         "checked": boolean;
@@ -65,10 +67,12 @@ declare namespace LocalJSX {
     interface ColorPalette {
         "colors"?: string;
         "controls"?: boolean;
+        "custom"?: string;
         "heading"?: string;
     }
     interface ColorPaletteRow {
         "color"?: string;
+        "customBackground"?: string;
     }
     interface InputToggle {
         "checked"?: boolean;
