@@ -50,10 +50,12 @@
 
 .a11y-fail {
   color: darkred;
+  outline: 2px solid red;
 }
 
 .a11y-pass {
   color: green;
+  outline: 2px solid greenyellow;
 }
 
 .a11y-pass.a11y-black {

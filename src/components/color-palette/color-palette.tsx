@@ -10,6 +10,7 @@ export class ColorPalette {
   @Prop() colors: string;
   @Prop() heading: string;
   @Prop() controls: boolean;
+  @Prop() custom: string;
   colorsArray: string[];
 
   // Split colors prop string into an array of colors
@@ -21,6 +22,7 @@ export class ColorPalette {
     return (
       <Host>
         {/* This main wrapper is needed for :has(), as it currently cannot be used on :host */}
+
         <main>
           {this.heading ? <div class="heading">{this.heading}</div> : ''}
           {this.controls ? (
@@ -37,7 +39,7 @@ export class ColorPalette {
           )}
           <ol class="palette">
             {this.colorsArray.map(color => (
-              <color-palette-row color={color}></color-palette-row>
+              <color-palette-row color={color} customBackground={this.custom}></color-palette-row>
             ))}
           </ol>
         </main>
