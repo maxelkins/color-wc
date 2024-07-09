@@ -1,4 +1,4 @@
-import { Element, Component, Prop, h, Host } from '@stencil/core';
+import { Element, Component, Prop, h } from '@stencil/core';
 import { colord, extend } from 'colord';
 import a11yPlugin from 'colord/plugins/a11y';
 import labPlugin from 'colord/plugins/lab';
