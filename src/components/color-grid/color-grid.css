@@ -1,0 +1,11 @@
+.grid,
+.grid * {
+  box-sizing: border-box;
+}
+
+.grid {
+  font-family: sans-serif;
+  display: grid;
+  margin-block-end: 3rem;
+  gap: 1rem;
+}

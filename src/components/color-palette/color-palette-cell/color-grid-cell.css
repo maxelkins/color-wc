@@ -1,0 +1,25 @@
+.cell,
+color-grid-cell {
+  height: auto;
+  border-radius: 0.25rem;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 0.25rem;
+}
+
+.cell-heading {
+  border: 1px solid lightgrey;
+}
+
+.cell-pass {
+  color: green;
+  outline: 2px solid green;
+}
+
+.cell-fail {
+  color: darkred;
+  outline: 2px solid red;
+}

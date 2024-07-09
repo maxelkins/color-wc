@@ -11,6 +11,13 @@ export namespace Components {
         "foreground": string;
         "tag": string;
     }
+    interface ColorGrid {
+        "colors": string;
+    }
+    interface ColorGridCell {
+        "color1": string;
+        "color2": string;
+    }
     interface ColorPalette {
         "colors": string;
         "controls": boolean;
@@ -35,6 +42,18 @@ declare global {
         prototype: HTMLA11yTagElement;
         new (): HTMLA11yTagElement;
     };
+    interface HTMLColorGridElement extends Components.ColorGrid, HTMLStencilElement {
+    }
+    var HTMLColorGridElement: {
+        prototype: HTMLColorGridElement;
+        new (): HTMLColorGridElement;
+    };
+    interface HTMLColorGridCellElement extends Components.ColorGridCell, HTMLStencilElement {
+    }
+    var HTMLColorGridCellElement: {
+        prototype: HTMLColorGridCellElement;
+        new (): HTMLColorGridCellElement;
+    };
     interface HTMLColorPaletteElement extends Components.ColorPalette, HTMLStencilElement {
     }
     var HTMLColorPaletteElement: {
@@ -55,6 +74,8 @@ declare global {
     };
     interface HTMLElementTagNameMap {
         "a11y-tag": HTMLA11yTagElement;
+        "color-grid": HTMLColorGridElement;
+        "color-grid-cell": HTMLColorGridCellElement;
         "color-palette": HTMLColorPaletteElement;
         "color-palette-row": HTMLColorPaletteRowElement;
         "input-toggle": HTMLInputToggleElement;
@@ -65,6 +86,13 @@ declare namespace LocalJSX {
         "background"?: string;
         "foreground"?: string;
         "tag"?: string;
+    }
+    interface ColorGrid {
+        "colors"?: string;
+    }
+    interface ColorGridCell {
+        "color1"?: string;
+        "color2"?: string;
     }
     interface ColorPalette {
         "colors"?: string;
@@ -84,6 +112,8 @@ declare namespace LocalJSX {
     }
     interface IntrinsicElements {
         "a11y-tag": A11yTag;
+        "color-grid": ColorGrid;
+        "color-grid-cell": ColorGridCell;
         "color-palette": ColorPalette;
         "color-palette-row": ColorPaletteRow;
         "input-toggle": InputToggle;
@@ -94,6 +124,8 @@ declare module "@stencil/core" {
     export namespace JSX {
         interface IntrinsicElements {
             "a11y-tag": LocalJSX.A11yTag & JSXBase.HTMLAttributes<HTMLA11yTagElement>;
+            "color-grid": LocalJSX.ColorGrid & JSXBase.HTMLAttributes<HTMLColorGridElement>;
+            "color-grid-cell": LocalJSX.ColorGridCell & JSXBase.HTMLAttributes<HTMLColorGridCellElement>;
             "color-palette": LocalJSX.ColorPalette & JSXBase.HTMLAttributes<HTMLColorPaletteElement>;
             "color-palette-row": LocalJSX.ColorPaletteRow & JSXBase.HTMLAttributes<HTMLColorPaletteRowElement>;
             "input-toggle": LocalJSX.InputToggle & JSXBase.HTMLAttributes<HTMLInputToggleElement>;
