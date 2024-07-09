@@ -46,8 +46,8 @@ export class ColorCellRow {
       );
     } else if (this.wcagAA(this.color1, this.color2)) {
       return (
-        <div class={`cell-pass cell`}>
-          <span>AA</span>
+        <div class={`cell cell-pass cell-pass-lg`}>
+          <span>AA / Lg text</span>
           <span>{this.contrastValue(this.color1, this.color2)}</span>
         </div>
       );

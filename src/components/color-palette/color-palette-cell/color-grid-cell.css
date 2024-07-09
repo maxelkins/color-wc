@@ -8,6 +8,8 @@ color-grid-cell {
   align-items: center;
   justify-content: center;
   padding: 0.25rem;
+  text-align: center;
+  height: 100%;
 }
 
 .cell-heading {
@@ -17,6 +19,10 @@ color-grid-cell {
 .cell-pass {
   color: green;
   outline: 2px solid green;
+}
+
+.cell-pass-lg {
+  font-size: 12px;
 }
 
 .cell-fail {
